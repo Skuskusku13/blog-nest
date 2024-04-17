@@ -2,8 +2,7 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import * as process from "node:process";
-import { ConfigModule } from "@nestjs/config";
+import { UtilisateursModule } from './utilisateurs/utilisateurs.module';
 
 @Module({
   imports: [
@@ -16,7 +15,8 @@ import { ConfigModule } from "@nestjs/config";
     "database": "blog_nest",
     "entities": ["dist/**/**.entity{.ts,.js}"],
     "synchronize": true
-  })],
+  }),
+    UtilisateursModule],
   controllers: [AppController],
   providers: [AppService],
 })
