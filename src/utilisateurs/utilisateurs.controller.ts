@@ -19,7 +19,6 @@ export class UtilisateursController {
 
   @Post()
   create(@Body() user: UtilisateurEntity) {
-    console.log(user);
     return this.utilisateursService.createUtilisateur(user);
   }
 
