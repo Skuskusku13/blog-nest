@@ -11,7 +11,7 @@ export class ArticlesService {
     constructor(@InjectRepository(ArticleEntity) private articlesRepository: Repository<ArticleEntity>) { }
 
     async getArticles(): Promise<ArticleEntity[]> {
-      return await this.articlesRepository.find({relations:["category"]});
+      return await this.articlesRepository.find({relations:["category", "utilisateur"]});
     }
 
     async getArticle(_id: number): Promise<ArticleEntity> {

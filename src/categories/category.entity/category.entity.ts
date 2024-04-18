@@ -10,7 +10,7 @@ export class CategoryEntity {
   @Column('text')
   nom:string;
 
-  @OneToMany(() => ArticleEntity, (product) => product.category)
+  @OneToMany(() => ArticleEntity, (article) => article.category)
   article: ArticleEntity[]
 }
 
