@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UtilisateursModule } from './utilisateurs/utilisateurs.module';
+import { ArticlesModule } from "./articles/articles.module";
 
 @Module({
   imports: [
@@ -11,12 +12,12 @@ import { UtilisateursModule } from './utilisateurs/utilisateurs.module';
     "host": "localhost",
     "port": 3306,
     "username": "root",
-    "password": "root",
+    "password": "",
     "database": "blog_nest",
     "entities": ["dist/**/**.entity{.ts,.js}"],
     "synchronize": true
   }),
-    UtilisateursModule],
+    UtilisateursModule, ArticlesModule],
   controllers: [AppController],
   providers: [AppService],
 })
