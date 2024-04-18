@@ -5,6 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { UtilisateursModule } from './utilisateurs/utilisateurs.module';
 import { AuthModule } from './auth/auth.module';
 import { ArticlesModule } from "./articles/articles.module";
+import { CategoriesModule } from './categories/categories.module';
 
 @Module({
   imports: [
@@ -18,6 +19,8 @@ import { ArticlesModule } from "./articles/articles.module";
     "entities": ["dist/**/**.entity{.ts,.js}"],
     "synchronize": true
   }),
+    UtilisateursModule,
+    CategoriesModule,
     UtilisateursModule,
     AuthModule,
     UtilisateursModule, ArticlesModule],
