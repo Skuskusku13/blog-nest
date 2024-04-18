@@ -9,13 +9,16 @@ export class CategoriesService {
 
     constructor(@InjectRepository(CategoryEntity) private categoryRepository: Repository<CategoryEntity>) { }
 
-  async getCategories(): Promise<CategoryEntity[]> {
-    return await this.categoryRepository.find();
-  }
+    async getCategories(): Promise<CategoryEntity[]> {
+      return await this.categoryRepository.find({relations:["article"]});
+    }
 
-  async getCategory(_id: number): Promise<CategoryEntity> {
-    return await this.categoryRepository.findOneBy({id:_id})
-  }
+    async getCategory(_id: number): Promise<CategoryEntity> {
+      return await this.categoryRepository
+        .findOne({ relations:["article"],
+          where: [{ "id": _id }]});
+    }
+
     async createCategory(category: CategoryEntity) {
       return await this.categoryRepository.save(category)
     }
