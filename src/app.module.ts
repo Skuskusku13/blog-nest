@@ -6,6 +6,7 @@ import { UtilisateursModule } from './utilisateurs/utilisateurs.module';
 import { AuthModule } from './auth/auth.module';
 import { ArticlesModule } from "./articles/articles.module";
 import { CategoriesModule } from './categories/categories.module';
+import { CommentairesModule } from './commentaires/commentaires.module';
 
 @Module({
   imports: [
@@ -14,7 +15,7 @@ import { CategoriesModule } from './categories/categories.module';
     "host": "localhost",
     "port": 3306,
     "username": "root",
-    "password": "root",
+    "password": "",
     "database": "blog_nest",
     "entities": ["dist/**/**.entity{.ts,.js}"],
     "synchronize": true
@@ -23,7 +24,9 @@ import { CategoriesModule } from './categories/categories.module';
     CategoriesModule,
     UtilisateursModule,
     AuthModule,
-    UtilisateursModule, ArticlesModule],
+    UtilisateursModule,
+    ArticlesModule,
+    CommentairesModule],
   controllers: [AppController],
   providers: [AppService],
 })

@@ -2,7 +2,6 @@ import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { UtilisateurEntity } from "./utilisateur.entity/utilisateur.entity";
 import { Repository } from "typeorm";
-import { CategoryEntity } from "../categories/category.entity/category.entity";
 
 const bcrypt = require("bcrypt");
 
@@ -16,7 +15,7 @@ export class UtilisateursService {
   }
 
   async getUtilisateurs(): Promise<UtilisateurEntity[]> {
-    return await this.utilisateurRepository.find({relations:["article"]});
+    return await this.utilisateurRepository.find({relations:["article", "commentaires"]});
   }
 
   async getUtilisateur(_id: number): Promise<UtilisateurEntity> {

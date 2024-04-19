@@ -4,7 +4,6 @@ import { ArticlesController } from './articles.controller';
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { ArticleEntity } from "./articles.entity/articles.entity";
 
-
 @Module({
   imports: [TypeOrmModule.forFeature([ArticleEntity])],
   providers: [ArticlesService],
