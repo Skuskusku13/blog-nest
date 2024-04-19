@@ -1,5 +1,6 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { ArticleEntity } from "../../articles/articles.entity/articles.entity";
+import { CommentaireEntity } from "../../commentaires/commentaire.entity/commentaire.entity";
 
 @Entity()
 export class UtilisateurEntity {
@@ -21,4 +22,7 @@ export class UtilisateurEntity {
 
   @OneToMany(() => ArticleEntity, (article) => article.category)
   article: ArticleEntity[]
+
+  @OneToMany(() => CommentaireEntity, (commentaire) => commentaire.utilisateur)
+  commentaires: CommentaireEntity[]
 }

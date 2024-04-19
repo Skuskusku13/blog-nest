@@ -2,8 +2,6 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { ArticleEntity } from './articles.entity/articles.entity';
-import { CategoryEntity } from "../categories/category.entity/category.entity";
-//import { CategoryEntity } from 'src/categories/category.entity/category.entity';
 
 @Injectable()
 export class ArticlesService {
