@@ -72,10 +72,18 @@ export class ConexInscComponent implements OnInit{
   }
 
   loginUser() {
+    if (!this.usernameC || !this.passwordC) {
+      console.error("Username and password cannot be empty.");
+      return;
+    }
     return this.authService.login(this.loginRequest =
       {username: this.usernameC, password: this.passwordC})
-      .subscribe(loginResponse => {
-        this.accessToken = loginResponse.acces_token
+      .subscribe((loginResponse) => {
+        this.accessToken = loginResponse.access_token
+        this.authService.getProfile(this.accessToken)
+          .subscribe(value => {
+          console.log(value)
+        })
       })
   }
 

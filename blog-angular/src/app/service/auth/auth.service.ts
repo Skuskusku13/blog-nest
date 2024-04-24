@@ -29,4 +29,12 @@ export class AuthService {
   postUtilisateur(registerRequest: RegisterRequest): Observable<RegisterResponse> {
     return this.http.post<RegisterResponse>(`${this.env}/utilisateurs`, registerRequest)
   }
+
+  getProfile(token: string){
+    return this.http.get(`${this.env}/auth/profile`,{
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${token}`,
+      }),
+    });
+  }
 }
