@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import {ArticleService} from "../../service/article.service";
+import {Component, OnInit} from '@angular/core';
+import {ArticleService} from "../../service/article/article.service";
 
 @Component({
   selector: 'app-article',
@@ -7,7 +7,7 @@ import {ArticleService} from "../../service/article.service";
   styleUrl: './article.component.scss'
 })
 
-export class ArticleComponent {
+export class ArticleComponent implements OnInit{
   articles : any = [];
 
   constructor(private  articleService: ArticleService) {
