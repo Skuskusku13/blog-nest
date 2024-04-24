@@ -2,6 +2,12 @@
   <div class="bloc-auth">
     <div class="p-2">
       <h3>{{ titleComponent }}</h3>
+
+      <div *ngIf="choiceComponent.type === 'INSCRIPTION' && messageRegister"
+           class="alert alert-success my-2" role="alert">
+        {{ messageConnex }}
+      </div>
+
       <form>
         <div data-mdb-input-init class="form-outline mb-4">
           <div *ngIf="choiceComponent.type === 'INSCRIPTION'">
@@ -22,9 +28,7 @@
                 name="prenom"
                 [(ngModel)]="prenom"/>
             </div>
-
           </div>
-
 
           <label class="form-label">{{ labelEmail }}</label>
           <!--on affiche que 1 des 2 inpût -->

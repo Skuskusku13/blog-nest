@@ -12,7 +12,7 @@ export class ArticleService {
   constructor(private http: HttpClient) { }
 
   getArticles() {
-    //TODO remplacer le anby par ArticleResponse
+    //TODO remplacer le any par ArticleResponse
     // mettre un typage a la fonction de type ** : Observable<ArticleResponse[]> **
     // this.env contient la base de notre url qui permet d'acceder çà l'api
     return this.http.get<any>(`${this.env}/articles`)

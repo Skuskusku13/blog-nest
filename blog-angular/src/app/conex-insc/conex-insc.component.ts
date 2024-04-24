@@ -3,6 +3,7 @@ import {Authchoice} from "./authchoice";
 import {LoginRequest} from "../request/login-request";
 import {RegisterRequest} from "../request/register-request";
 import {AuthService} from "../service/auth/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-conex-insc',
@@ -18,6 +19,8 @@ export class ConexInscComponent implements OnInit{
 
   // TODO verification de si les champs sont vide
   disabledButton: boolean = true;
+  messageRegister: boolean = false;
+  messageConnex: string = "";
 
   // variables dependantes du composant
   titleComponent: string;
@@ -35,7 +38,8 @@ export class ConexInscComponent implements OnInit{
   password: string;
   id: number;
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -47,7 +51,9 @@ export class ConexInscComponent implements OnInit{
     if(this.choiceComponent.type === 'CONNEXION') {
       this.passwordC = this.usernameC = "";
     } else {
-
+      this.nom = this.prenom = this.email = this.password  = "";
+      this.id = 0;
+      this.messageRegister = false;
     }
   }
 
@@ -68,6 +74,8 @@ export class ConexInscComponent implements OnInit{
         password: this.password})
       .subscribe(value => {
         console.log(value)
+        this.messageRegister = true;
+        this.messageConnex = 'Vous pouvez vous connecter avec l\'email et le mot de passe que vous avez défini.\nEmail: ' + this.email;
       })
   }
 
@@ -83,6 +91,7 @@ export class ConexInscComponent implements OnInit{
         this.authService.getProfile(this.accessToken)
           .subscribe(value => {
           console.log(value)
+            this.router.navigate(['/article'])
         })
       })
   }

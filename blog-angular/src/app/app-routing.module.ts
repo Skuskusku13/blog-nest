@@ -8,7 +8,6 @@ const routes: Routes = [
   {path: '', redirectTo:'accueil', pathMatch: 'full'},
   {path: 'accueil' , component: AccueilComponent},
   {path: 'article' , component: ArticleComponent},
-  {path: 'authenticate' , component: ConexInscComponent},
 
 
 ];
