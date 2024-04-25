@@ -1,1 +1,16 @@
-<app-article></app-article>
+<!--TODO mettre app-article dans la page article qui suit l'url '/articles'-->
+<!--<app-article></app-article>-->
+
+<div class="d-flex col-12">
+  <div class="w-50">
+    <app-conex-insc
+      [choiceComponent]="{ type: 'CONNEXION' }"
+    />
+  </div>
+
+  <div class="w-50">
+    <app-conex-insc
+      [choiceComponent]="{ type: 'INSCRIPTION' }"
+    />
+  </div>
+</div>

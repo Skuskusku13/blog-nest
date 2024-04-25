@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {AccueilComponent} from "./accueil/accueil.component";
 import {ArticleComponent} from "./commun/article/article.component";
+import {ConexInscComponent} from "./conex-insc/conex-insc.component";
 
 const routes: Routes = [
   {path: '', redirectTo:'accueil', pathMatch: 'full'},
