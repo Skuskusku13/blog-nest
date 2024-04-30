@@ -8,6 +8,7 @@ import {AccueilComponent} from './accueil/accueil.component';
 import {ArticleComponent} from './commun/article/article.component';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,8 @@ import {FormsModule} from "@angular/forms";
     AppComponent,
     AccueilComponent,
     ArticleComponent,
+    AppComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -26,5 +29,4 @@ import {FormsModule} from "@angular/forms";
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule { }
