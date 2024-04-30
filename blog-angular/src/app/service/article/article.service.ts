@@ -18,8 +18,12 @@ export class ArticleService {
     return this.http.get<ArticleResponse[]>(`${this.env}/articles`)
   }
 
-  postArticle(data: any) {
-    return this.http.post(`${this.env}/articles`, data,
-    )
+  postArticle(articleRequest: ArticleRequest) {
+    console.log(articleRequest)
+    return this.http.post<ArticleRequest>(`${this.env}/articles`, articleRequest, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    }).subscribe()
   }
 }
