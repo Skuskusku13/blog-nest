@@ -4,6 +4,7 @@ import {UtilisateurService} from "../service/utilisateur.service";
 import {ArticleRequest} from "../request/article-request";
 import {ArticleService} from "../service/article/article.service";
 import {ArticleResponse} from "../response/article-response";
+import {log} from "@angular-devkit/build-angular/src/builders/ssr-dev-server";
 
 @Component({
   selector: 'app-creer-article',
@@ -14,14 +15,14 @@ export class CreerArticleComponent implements OnInit{
   categories : any = [];
   utilisateurs: any = [];
 
-  id: number;
+
   titre: string;
   contenu: string;
   date_publi: string;
   image_url: string;
-  idCategory: number;
+  idCategory: string;
   nomCategory: string;
-  idUtilisateur: number;
+  idUtilisateur: string;
   nomUtilisateur: string;
   prenomUtilisateur: string;
   emailUtilisateur: string;
@@ -35,8 +36,8 @@ export class CreerArticleComponent implements OnInit{
   }
 
   ngOnInit() {
-    let categorieData = this.categorieService.getCategories()
-    categorieData.subscribe(res => {
+    this.categorieService.getCategories()
+      .subscribe(res => {
       this.categories = res;
     })
 
@@ -46,26 +47,25 @@ export class CreerArticleComponent implements OnInit{
     })
   }
 
-  submit() {
+  submit(idUser: string, idCate: string) {
     this.articleService.postArticle(this.articleRequest = {
       titre: this.titre,
       contenu: this.contenu,
       date_publi: this.date_publi,
       image_url: this.image_url,
       category: {
-        id: this.idCategory,
-        nom: this.nomCategory,
+        id: this.categories[idCate].id,
+        nom: this.categories[idCate].nom
       },
       utilisateur: {
-        id: this.idUtilisateur,
-        nom: this.nomUtilisateur,
-        prenom: this.prenomUtilisateur,
-        email: this.emailUtilisateur,
+        id: this.utilisateurs[idUser].id,
+        nom: this.utilisateurs[idUser].nom,
+        prenom: this.utilisateurs[idUser].prenom,
+        email: this.utilisateurs[idUser].email,
       }
     })
     console.log(this.articleRequest)
   }
 
-
-
+  protected readonly Number = Number;
 }
