@@ -8,6 +8,7 @@ import {AccueilComponent} from './accueil/accueil.component';
 import {ArticleComponent} from './commun/article/article.component';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
+import { FooterComponent } from './footer/footer.component';
 import { CreerArticleComponent } from './creer-article/creer-article.component';
 
 @NgModule({
@@ -17,6 +18,8 @@ import { CreerArticleComponent } from './creer-article/creer-article.component';
     AppComponent,
     AccueilComponent,
     ArticleComponent,
+    AppComponent,
+    FooterComponent,
     CreerArticleComponent,
   ],
   imports: [
@@ -28,5 +31,4 @@ import { CreerArticleComponent } from './creer-article/creer-article.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule { }
