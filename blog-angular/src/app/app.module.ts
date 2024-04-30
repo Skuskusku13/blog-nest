@@ -8,6 +8,7 @@ import {AccueilComponent} from './accueil/accueil.component';
 import {ArticleComponent} from './commun/article/article.component';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
+import { CreerArticleComponent } from './creer-article/creer-article.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import {FormsModule} from "@angular/forms";
     AppComponent,
     AccueilComponent,
     ArticleComponent,
+    CreerArticleComponent,
   ],
   imports: [
     BrowserModule,

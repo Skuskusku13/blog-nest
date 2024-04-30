@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
+import {Observable} from "rxjs";
+import {ArticleRequest} from "../../request/article-request";
+import {ArticleResponse} from "../../response/article-response";
 
 @Injectable({
   providedIn: 'root'
@@ -11,10 +14,12 @@ export class ArticleService {
 
   constructor(private http: HttpClient) { }
 
-  getArticles() {
-    //TODO remplacer le any par ArticleResponse
-    // mettre un typage a la fonction de type ** : Observable<ArticleResponse[]> **
-    // this.env contient la base de notre url qui permet d'acceder çà l'api
-    return this.http.get<any>(`${this.env}/articles`)
+  getArticles(): Observable<ArticleRequest[]> {
+    return this.http.get<ArticleResponse[]>(`${this.env}/articles`)
+  }
+
+  postArticle(data: any) {
+    return this.http.post(`${this.env}/articles`, data,
+    )
   }
 }
