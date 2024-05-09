@@ -1,0 +1,85 @@
+<div>
+  <div class="bloc-auth">
+    <div class="p-2">
+      <h3>{{ titleComponent }}</h3>
+
+      <div *ngIf="choiceComponent.type === 'INSCRIPTION' && messageRegister"
+           class="alert alert-success my-2" role="alert">
+        {{ messageConnex }}
+      </div>
+
+      <form>
+        <div data-mdb-input-init class="form-outline mb-4">
+          <div *ngIf="choiceComponent.type === 'INSCRIPTION'">
+            <div data-mdb-input-init class="form-outline mb-4">
+              <label class="form-label">Nom</label>
+              <input
+                type="text"
+                class="form-control"
+                name="nom"
+                [(ngModel)]="nom"/>
+            </div>
+
+            <div data-mdb-input-init class="form-outline mb-4">
+              <label class="form-label">Prénom</label>
+              <input
+                type="text"
+                class="form-control"
+                name="prenom"
+                [(ngModel)]="prenom"/>
+            </div>
+          </div>
+
+          <label class="form-label">{{ labelEmail }}</label>
+          <!--on affiche que 1 des 2 inpût -->
+          <input
+            *ngIf="labelEmail === 'Username'"
+            type="email"
+            class="form-control"
+            name="usernameC"
+            [(ngModel)]="usernameC"/>
+
+          <input
+            *ngIf="labelEmail === 'Email'"
+            type="email"
+            class="form-control"
+            name="email"
+            [(ngModel)]="email"/>
+        </div>
+
+        <div data-mdb-input-init class="form-outline mb-4">
+          <label class="form-label">Password</label>
+          <input
+            *ngIf="labelEmail === 'Username'"
+            type="password"
+            class="form-control"
+            name="passwordC"
+            [(ngModel)]="passwordC"/>
+
+          <input
+            *ngIf="labelEmail === 'Email'"
+            type="password"
+            class="form-control"
+            name="password"
+            [(ngModel)]="password"/>
+        </div>
+
+
+        <div class="d-flex justify-content-evenly">
+          <button type="button"
+                  (click)="redirectButtonAuth()"
+                  data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4">
+            {{ buttonComponent }}
+          </button>
+
+          <button type="reset"
+                  data-mdb-button-init data-mdb-ripple-init class="btn btn-warning btn-block mb-4"
+          (click)="resetForm()">
+            Annuler
+          </button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
